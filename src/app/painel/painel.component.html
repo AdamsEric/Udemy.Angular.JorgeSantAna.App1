@@ -2,27 +2,27 @@
    <div class="jumbotron">
       <div class="row">
          <div class="col-6">
-            <app-progresso></app-progresso>
+            <app-progresso [progresso]="progresso"></app-progresso>
          </div>
          <div class="col-6">
-            <app-tentativas></app-tentativas>
+            <app-tentativas [tentativas]="tentativas"></app-tentativas>
          </div>
       </div>
       <div class="row">
          <div class="col">
             <h6>{{ instrucao }}</h6>
-            <p>{{ frases[0].fraseEng }}</p>
+            <p>{{ rodadaFrase.fraseEng }}</p>
          </div>
       </div>
       <div class="row">
          <div class="col form-group">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" (input)="atualizarResposta($event)" [value]="resposta"></textarea>
          </div>
       </div>
       <div class="row">
          <div class="col">
             <div class="d-flex justify-content-end">
-               <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+               <button type="button" class="btn btn-primary" (click)="verificarResposta()" data-toggle="button" aria-pressed="false" autocomplete="off">
                   Verificar
                </button>
             </div>
